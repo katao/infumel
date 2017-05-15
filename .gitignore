@@ -19,3 +19,17 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+/log/*
+!/log/.keep
+/tmp
+/spec/tmp
+public/assets/*
+
+/.bundle
+/vendor/bundle
+config/database.yml
+
+.DS_Store
+*.swp
+.env.local
+
