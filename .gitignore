@@ -32,4 +32,6 @@ config/database.yml
 .DS_Store
 *.swp
 .env.local
-
+/test/*
+/bin/*
+/log/*
