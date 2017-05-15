@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Characters</h1>
+
+<div>
+  <%= @alert %>
+  <%= search_form_for @q do |f| %>
+  <div class="field">
+    <%#= f.label :l_name_eq %><br />
+    <%#= f.text_field :l_name_eq, class: 'form-control' %>
+    <%= f.label '韻を踏みたい単語を「ひらがな」で入力して下さい。' %><br />
+    <%= f.text_field :search_word_start, { value: @search_word, class: 'form-control' } %>
+    <%= select_tag :word_limit, options_for_select({ "1文字": 1, "2文字": 2 }),  include_blank: '全一致' %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'search' %>
+  </div>
+<% end %>
+<% if @search_word_start %>
+  <p>【<%= @search_word %>】の韻は「<%= @search_word_start %>」です。</p>
+<% end %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Game</th>
+      <th>Name</th>
+      <th>Kana</th>
+      <th>Roma</th>
+      <th>Search word</th>
+      <th>Cv</th>
+      <th>Idol type</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Birthday</th>
+      <th>Blood type</th>
+      <th>Bust</th>
+      <th>Waist</th>
+      <th>Hip</th>
+      <th>Color</th>
+      <th>Description</th>
+      <th>Memo</th>
+      <th>Position</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @characters.each do |character| %>
+      <tr>
+        <td><%= character.id %></td>
+        <td><%= character.game_id %></td>
+        <td><%= character.name %></td>
+        <td><%= character.kana %></td>
+        <td><%= character.roma %></td>
+        <td><%= character.search_word %></td>
+        <td><%= character.cv_id %></td>
+        <td><%= character.idol_type %></td>
+        <td><%= character.age %></td>
+        <td><%= character.height %></td>
+        <td><%= character.weight %></td>
+        <td><%= character.birthday %></td>
+        <td><%= character.blood_type %></td>
+        <td><%= character.bust %></td>
+        <td><%= character.waist %></td>
+        <td><%= character.hip %></td>
+        <td><%= character.color %></td>
+        <td><%= character.description %></td>
+        <td><%= character.memo %></td>
+        <td><%= character.position %></td>
+        <td><%= link_to 'Show', character %></td>
+        <td><%= link_to 'Edit', edit_character_path(character) %></td>
+        <td><%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Character', new_character_path %>

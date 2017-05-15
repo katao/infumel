@@ -1,0 +1,122 @@
+<%= form_for(character) do |f| %>
+  <% if character.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(character.errors.count, "error") %> prohibited this character from being saved:</h2>
+
+      <ul>
+      <% character.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :game_id %>
+    <%= f.number_field :game_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :l_name %>
+    <%= f.text_field :l_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :f_name %>
+    <%= f.text_field :f_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :l_kana %>
+    <%= f.text_field :l_kana %>
+  </div>
+
+  <div class="field">
+    <%= f.label :f_kana %>
+    <%= f.text_field :f_kana %>
+  </div>
+
+  <div class="field">
+    <%= f.label :roma %>
+    <%= f.text_field :roma %>
+  </div>
+
+  <div class="field">
+    <%= f.label :search_word %>
+    <%= f.text_field :search_word %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cv_id %>
+    <%= f.text_field :cv_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :idol_type %>
+    <%= f.text_field :idol_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %>
+    <%= f.text_field :age %>
+  </div>
+
+  <div class="field">
+    <%= f.label :height %>
+    <%= f.text_field :height %>
+  </div>
+
+  <div class="field">
+    <%= f.label :weight %>
+    <%= f.text_field :weight %>
+  </div>
+
+  <div class="field">
+    <%= f.label :birthday %>
+    <%= f.text_field :birthday %>
+  </div>
+
+  <div class="field">
+    <%= f.label :blood_type %>
+    <%= f.text_field :blood_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bust %>
+    <%= f.text_field :bust %>
+  </div>
+
+  <div class="field">
+    <%= f.label :waist %>
+    <%= f.text_field :waist %>
+  </div>
+
+  <div class="field">
+    <%= f.label :hip %>
+    <%= f.text_field :hip %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color %>
+    <%= f.text_field :color %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :memo %>
+    <%= f.text_field :memo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :position %>
+    <%= f.number_field :position %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,41 @@
+
+    json = ActiveSupport::JSON.decode(File.read('public/character.json'))
+    # 変数jsonに入った配列状態のjsonデータを一つ一つ取り出して、モデル.createを使ってdbに投入
+    json.each do |data|
+      c = Character.find_by(memo: data[0])
+      c.constellation = data[1][:constellation]
+      c.handedness = data[1][:handedness]
+      c.save
+    end
+
+
+app_id ='dj0zaiZpPWVlMTZ4MFpSU1ZKdiZzPWNvbnN1bWVyc2VjcmV0Jng9ODc-'
+    cs =  Character.all.where(f_kana: [nil,'']).where.not(memo: nil)
+    cs.each do |c|
+      next unless c.f_name.present?
+      word = URI.encode(c.f_name)
+      url = "https://jlp.yahooapis.jp/FuriganaService/V1/furigana?appid=#{app_id}&sentence=#{word}"
+      doc = REXML::Document.new(open(url))
+      hash = Hash.from_xml(doc.to_s)
+      resurts = hash['ResultSet']['Result']['WordList']['Word']
+      if resurts.class == Hash  && resurts.has_key?('Furigana')
+        c.f_kana = resurts['Furigana']
+        c.save
+      else
+        #resurts.count != 4
+        resurts.each do |resurt|
+          c.f_kana = c.f_kana.to_s + resurt['Furigana'].to_s #if resurt.count != 2
+          #c.roma = resurt['Roman']
+          c.save
+        end
+      end
+      #sleep(1)
+    end
+    cs =  Character.all.where.not(memo: nil)
+    cs.each do |c|
+      roma = c.l_kana.to_s.romaji
+      roma = roma + c.f_kana.to_s.romaji
+      c.roma = roma
+      c.search_word = c.to_boin.reverse
+      c.save
+    end
