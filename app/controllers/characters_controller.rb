@@ -2,6 +2,8 @@ class CharactersController < ApplicationController
   require "romaji/core_ext/string"
 
   def index
+
+
     search = { }
     if params.present?
       #next unless params[:q][:search_word_start].present?

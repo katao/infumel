@@ -13,7 +13,7 @@ class CreateCharacters < ActiveRecord::Migration[5.0]
       t.integer :age
       t.integer :height
       t.integer :weight
-      t.date :birthday
+      t.string :birthday
       t.string :blood_type
       t.integer :bust
       t.integer :waist

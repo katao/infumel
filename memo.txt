@@ -3,8 +3,8 @@
     # 変数jsonに入った配列状態のjsonデータを一つ一つ取り出して、モデル.createを使ってdbに投入
     json.each do |data|
       c = Character.find_by(memo: data[0])
-      c.constellation = data[1][:constellation]
-      c.handedness = data[1][:handedness]
+      c.birthday = data[1]['birthday']['month'].to_s + '/' + data[1]['birthday']['day'].to_s
+      c.constellation = data[1]['constellation']
       c.save
     end
 
