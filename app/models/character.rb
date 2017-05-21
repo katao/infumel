@@ -1,6 +1,6 @@
 class Character < ApplicationRecord
   def name
-    self.l_name.to_s + '|' + self.f_name.to_s
+    self.l_name.to_s + ' ' + self.f_name.to_s
   end
 
   def kana
