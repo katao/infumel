@@ -44,6 +44,13 @@ gem 'pry-byebug'
 gem 'pry-doc'
 gem 'pry-rails'
 
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'bootstrap_form'
+
 gem 'rb-readline'
 
 group :development, :test do

@@ -5,7 +5,7 @@ class CharactersController < ApplicationController
 
 
     search = { }
-    if params.present?
+    if params.present? &&  params[:q].present?
       #next unless params[:q][:search_word_start].present?
       @search_word = params[:q][:search_word_start]
       # バリデーション
