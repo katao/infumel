@@ -10,7 +10,7 @@
       <%#= f.text_field :l_name_eq, class: 'form-control' %>
       <%= f.label '韻を踏みたい単語を「ひらがな」で入力して下さい。' %><br />
       <%= f.text_field :search_word_start, { value: @search_word, class: 'form-control' } %>
-      <%= select_tag :word_limit, options_for_select({ "1文字": 1, "2文字": 2 }),  include_blank: '全一致',  class: "form-control" %>
+      <%= select_tag :word_limit, options_for_select({ "1文字": 1, "2文字": 2 }, params[:word_limit]),  include_blank: '全一致',  class: "form-control" %>
       <%= f.submit 'search', class: 'btn btn-success' %>
     </div>
   <% end %>
@@ -18,6 +18,7 @@
     <p>【<%= @search_word %>】の韻は「<%= @search_word_start %>」です。</p>
   <% end %>
 </div>
+<br>
 
 <div class="container">
 <table class="table table-striped table-bordered">
@@ -32,7 +33,7 @@
       <th>Idol type</th>
       <th>Description</th>
       <th>Memo</th>
-      <th colspan="2"></th>
+      <th colspan="2">action</th>
     </tr>
   </thead>
 
