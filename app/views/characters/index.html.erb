@@ -25,14 +25,17 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Game</th>
+      <!--<th>Game</th>-->
       <th>Name</th>
       <th>Kana</th>
       <th>Roma</th>
+      <th>Rhyme</th>
+      <!--
       <th>Search word</th>
       <th>Idol type</th>
       <th>Description</th>
       <th>Memo</th>
+      -->
       <th colspan="2">action</th>
     </tr>
   </thead>
@@ -41,14 +44,19 @@
     <% @characters.each do |character| %>
       <tr>
         <td><%= character.id %></td>
+        <!--
         <td><%= character.game_id %></td>
+        -->
         <td><%= character.name %></td>
         <td><%= character.kana %></td>
         <td><%= character.roma %></td>
+        <td><%= character.search_word.reverse %></td>
+        <!--
         <td><%= character.search_word %></td>
         <td><%= character.idol_type %></td>
         <td><%= character.description %></td>
         <td><%= character.memo %></td>
+        -->
         <td><%= link_to 'Show', character %></td>
         <td><%= link_to 'Edit', edit_character_path(character) %></td>
       </tr>
