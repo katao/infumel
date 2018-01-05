@@ -1,7 +1,7 @@
 lock '3.4.0'
 
 set :application, 'infumel'
-set :repo_url, '${GIT_URL}'
+set :repo_url, 'https://github.com/katao/infumel.git'
 
 set :branch, 'master'
 set :deploy_to, '/var/www/app/infumel'
