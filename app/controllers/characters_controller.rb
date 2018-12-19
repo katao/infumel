@@ -11,6 +11,12 @@ class CharactersController < ApplicationController
     # 韻の説明ページを作成
     # 765メンバーの重複
 
+    # Gemの利用
+binding.pry
+    @t7s = T7s.find_by_id(1).name
+    @t7s = T7s.find_by_name('ニコ')
+
+
     search = { }
     if params.present? && params[:q].present?
       #next unless params[:q][:search_word_start].present?

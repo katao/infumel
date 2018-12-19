@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170514102335) do
+ActiveRecord::Schema.define(version: 20181219113152) do
 
   create_table "characters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "contents"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20170514102335) do
     t.integer  "age"
     t.integer  "height"
     t.integer  "weight"
-    t.date     "birthday"
+    t.string   "birthday"
     t.string   "blood_type"
     t.integer  "bust"
     t.integer  "waist"
@@ -37,9 +37,17 @@ ActiveRecord::Schema.define(version: 20170514102335) do
     t.string   "color"
     t.text     "description",   limit: 65535
     t.text     "memo",          limit: 65535
+    t.string   "domain"
     t.integer  "position"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+  end
+
+  create_table "domains", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -11,6 +11,9 @@ gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'capistrano-rbenv', github: "capistrano/rbenv"
+gem 'faker'
+gem 't7s', path: '/Users/kataokadaichi/Site/rails/t7s'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'

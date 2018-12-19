@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Domains</h1>
+
+<div class="container">
+  <%= @alert %>
+  <%= search_form_for @q, class: 'form-inline' do |f| %>
+    <div class="form-group">
+      <%#= f.label :l_name_eq %><br />
+      <%#= f.text_field :l_name_eq, class: 'form-control' %>
+      <%= f.label '韻を踏みたい単語を「ひらがな」で入力して下さい。' %><br />
+      <%= f.text_field :search_word_start, { value: @search_word, class: 'form-control' } %>
+      <%= f.submit 'search', class: 'btn btn-success' %>
+    </div>
+  <% end %>
+</div>
+<br>
+
+<div class="container">
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <!--<th>Game</th>-->
+      <th>Name</th>
+      <th>Kana</th>
+      <th>Roma</th>
+      <th>Domain</th>
+      <!--
+      <th>Search word</th>
+      <th>Idol type</th>
+      <th>Description</th>
+      <th>Memo</th>
+      -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @characters.each do |character| %>
+      <tr>
+        <td><%= character.id %></td>
+        <!--
+        <td><%= character.game_id %></td>
+        -->
+        <td><%= character.name %></td>
+        <td><%= character.kana %></td>
+        <td><%= character.roma %></td>
+        <td><%= character.domain %></td>
+        <!--
+        <td><%= character.search_word %></td>
+        <td><%= character.idol_type %></td>
+        <td><%= character.description %></td>
+        <td><%= character.memo %></td>
+        -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Character', new_character_path %>
+</div>
